@@ -8,7 +8,7 @@ test("order phase for happy path", async () => {
   const { unmount } = render(<App />);
 
   const vanillaInput = await screen.findByRole("spinbutton", {
-    name: "Vaniila",
+    name: "Vanilla",
   });
 
   await user.clear(vanillaInput);
@@ -117,7 +117,7 @@ test("Toppings header is not on summary page if toppings ordered, then removed",
   });
   await user.click(cherriesTopping);
   expect(cherriesTopping).toBeChecked();
-  const toppingsTotal = screen.getByRole("Toppings total: $", { exact: false });
+  const toppingsTotal = screen.getByText("Toppings total: $", { exact: false });
   expect(toppingsTotal).toHaveTextContent("1.50");
 
   await user.click(cherriesTopping);
